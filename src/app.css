@@ -1,0 +1,20 @@
+ion-fab{
+    margin-bottom: 56px;
+}
+
+ion-fab-button[title] {
+    position: relative;
+}
+
+ion-fab-button[title]::after {
+    position: absolute;
+    content: attr(title);
+    z-index: 1;
+    right: 55px;
+    bottom: 4px;
+    background: var(--ion-color-light, #f4f5f8);
+    padding: 10px;
+    border-radius: 1rem;
+    color: var(--color);
+    box-shadow: var(--box-shadow);
+}

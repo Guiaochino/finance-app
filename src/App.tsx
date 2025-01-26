@@ -1,7 +1,12 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
+  IonButton,
+  IonFab,
+  IonFabButton,
+  IonFabList,
   IonIcon,
+  IonItem,
   IonLabel,
   IonRouterOutlet,
   IonTabBar,
@@ -10,10 +15,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
-import Tab3 from './pages/Tab3';
+import { add, card, ellipse, home, pricetag, settings, square, triangle, wallet } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,6 +46,12 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import DashboardPage from './pages/DashboardPage';
+import ExpensePage from './pages/ExpensePage';
+import IncomePage from './pages/IncomePage';
+import AccountsPage from './pages/AccountsPage';
+
+import './app.css'
 
 setupIonicReact();
 
@@ -52,34 +60,53 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
-          </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
-          </Route>
-          <Route path="/tab3">
-            <Tab3 />
-          </Route>
+          <Route exact path="/dashboard" render={() => <DashboardPage />} />
+          <Route exact path="/expense" render={() => <ExpensePage />} />
+          <Route exact path="/income" render={() => <IncomePage />} />
+          <Route exact path="/accounts" render={() => <AccountsPage />} />
+          
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/dashboard" />
           </Route>
         </IonRouterOutlet>
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/tab1">
-            <IonIcon aria-hidden="true" icon={triangle} />
-            <IonLabel>Tab 1</IonLabel>
+          <IonTabButton tab="dashboard" href="/dashboard">
+            <IonIcon aria-hidden="true" icon={home} />
+            <IonLabel>Dashboard</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={ellipse} />
-            <IonLabel>Tab 2</IonLabel>
+          <IonTabButton tab="expense" href="/expense">
+            <IonIcon aria-hidden="true" icon={pricetag} />
+            <IonLabel>Expense</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={square} />
-            <IonLabel>Tab 3</IonLabel>
+          <IonTabButton tab="income" href="/income">
+            <IonIcon aria-hidden="true" icon={wallet} />
+            <IonLabel>Income</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="accounts" href="/accounts">
+            <IonIcon aria-hidden="true" icon={card} />
+            <IonLabel>Accounts</IonLabel>
           </IonTabButton>
         </IonTabBar>
       </IonTabs>
+
+      <IonFab slot='fixed' horizontal='end' vertical='bottom'>
+          <IonFabButton>
+            <IonIcon icon={add} />
+          </IonFabButton>
+          <IonFabList side='top'>
+            <IonFabButton title='Expense'>
+              <IonIcon icon={pricetag} />
+            </IonFabButton>
+
+            <IonFabButton title='Income'>
+              <IonIcon icon={wallet} />
+            </IonFabButton>
+
+            <IonFabButton title='Account'>
+              <IonIcon icon={card} />
+            </IonFabButton>
+          </IonFabList>
+        </IonFab>
     </IonReactRouter>
   </IonApp>
 );

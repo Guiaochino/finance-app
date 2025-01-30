@@ -1,8 +1,9 @@
 import React from 'react';
 import HeaderComponent from '../components/HeaderComponent';
-import { IonContent, IonFab, IonFabButton, IonFabList, IonFooter, IonIcon } from '@ionic/react';
+import { IonButton, IonContent, IonFab, IonFabButton, IonFabList, IonFooter, IonIcon, IonNavLink } from '@ionic/react';
 import AccountCardComponent from '../components/AccountCardComponent';
 import { add, pricetag } from 'ionicons/icons';
+import ProfilePage from './ProfilePage';
 
 type Props = {}
 

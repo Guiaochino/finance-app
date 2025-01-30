@@ -1,6 +1,7 @@
 import React from 'react'
 import HeaderComponent from '../components/HeaderComponent';
-import { IonContent, IonFooter } from '@ionic/react';
+import { IonButton, IonContent, IonFooter, IonNav, IonNavLink } from '@ionic/react';
+import ProfilePage from './ProfilePage';
 
 type Props = {}
 
@@ -11,7 +12,6 @@ const DashboardPage = (props: Props) => {
       <IonContent>
         Dashboard
       </IonContent>
-      <IonFooter />
     </>
   )
 }

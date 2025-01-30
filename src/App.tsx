@@ -8,6 +8,7 @@ import {
   IonIcon,
   IonItem,
   IonLabel,
+  IonNav,
   IonRouterOutlet,
   IonTabBar,
   IonTabButton,
@@ -52,6 +53,7 @@ import IncomePage from './pages/IncomePage';
 import AccountsPage from './pages/AccountsPage';
 
 import './app.css'
+import ProfilePage from './pages/ProfilePage';
 
 setupIonicReact();
 
@@ -60,10 +62,11 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route exact path="/dashboard" render={() => <DashboardPage />} />
-          <Route exact path="/expense" render={() => <ExpensePage />} />
-          <Route exact path="/income" render={() => <IncomePage />} />
-          <Route exact path="/accounts" render={() => <AccountsPage />} />
+          <Route exact path="/dashboard" component={DashboardPage} />
+          <Route exact path="/expense" component={ExpensePage} />
+          <Route exact path="/income" component={IncomePage} />
+          <Route exact path="/accounts" component={AccountsPage} />
+          <Route exact path="/profile" component={ProfilePage} />
           
           <Route exact path="/">
             <Redirect to="/dashboard" />

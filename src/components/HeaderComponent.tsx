@@ -10,18 +10,20 @@ const HeaderComponent = (props: Props) => {
     const {headerName} = props;
     const ionRouter = useIonRouter();
 
+    const {routeInfo} = ionRouter;
+
   return (
     <IonHeader collapse='fade'>
         <IonToolbar>
             <IonButtons slot='start'>
               <IonBackButton 
                 defaultHref={
-                  ionRouter.routeInfo && 
-                  ionRouter.routeInfo.routeDirection === 'forward' ?
-                  ionRouter.routeInfo.lastPathname : 
+                  routeInfo && 
+                  routeInfo.routeDirection === 'forward' ?
+                  routeInfo.lastPathname : 
                   undefined
                 } 
-                text={'BACK'}
+                text={routeInfo.lastPathname?.slice(1)}
               />
             </IonButtons>
           <IonTitle>
